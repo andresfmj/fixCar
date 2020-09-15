@@ -10,7 +10,7 @@ const routes    = require('./routes/index');
 
 require('./config/database');
 
-app.use(morgan(process.env.NODE_ENV === 'env' ? 'dev' : 'combined'))
+app.use(morgan(process.env.NODE_ENV === 'local' ? 'dev' : 'combined'))
 app.use(cors());
 
 app.use(express.json());
