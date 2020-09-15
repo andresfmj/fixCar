@@ -62,39 +62,6 @@ router.post('/create', async (req, res) => {
 
 })
 
-router.post('/car/create', async (req, res) => {
-    const {
-        emailclient, brand, model, extra_info
-    } = req.body
 
-    if (!emailclient || !brand || !model) {
-        return res.status(406).json({
-            error: true,
-            message: 'Some parameters are required to register a car for the client',
-            missingParams: 'emailclient, brand, model'
-        })
-    }
-
-    const client = await ClientModel.findOne({ email: emailclient })
-    if (client) {
-        client.car.push({
-            brand: brand,
-            model: model,
-            extraInfo: extra_info || null
-        })
-        const clientUpdated = await client.save();
-        res.status(201).json({
-            error: false,
-            message: 'A new car has been added to the client',
-            client: clientUpdated
-        })
-    } else {
-        res.status(404).json({
-            error: true,
-            message: 'Client not found'
-        })
-    }
-
-})
 
 module.exports = router
