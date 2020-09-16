@@ -6,6 +6,8 @@ import Index from './components/pages/Index/Index';
 import NewClient from './components/pages/NewClient/NewClient';
 import Cars from './components/pages/Cars/Cars';
 
+import FixesByCar from './components/FixesByCar/FixesByCar';
+
 function App() {
 	return (
 		<React.Fragment>
@@ -14,7 +16,7 @@ function App() {
 				<Route exact path='/' component={Index} />
 				<Route exact path='/client/new' component={NewClient} />
 				<Route exact path='/client/:clientId/cars' component={Cars} />
-				<Route exact path='/cars/:carId/fixes' render={() => <h2>Fixes by Car</h2>} />
+				<Route exact path='/cars/:carId/fixes' component={FixesByCar} />
 			</Switch>
 		</React.Fragment>
 	);

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { connect } from 'react-redux';
-import { withRouter, useParams, useRouteMatch } from 'react-router-dom';
+import { withRouter, useParams } from 'react-router-dom';
+
 import NewCar from '../../NewCar/NewCar';
 import Modal from '../../UI/Modal/Modal';
 import Overlay from '../../UI/Overlay/Overlay';
@@ -20,6 +21,10 @@ function Cars(props) {
 
     const toggleNewCarWindow = () => {
         setNewCarModal(!newCarModal)
+    }
+
+    const redirectFixesPage = (carId) => {
+        props.history.push(`/cars/${carId}/fixes`)
     }
 
     return (
@@ -41,11 +46,9 @@ function Cars(props) {
                                     <ul>
                                         {carsByClient.map(c => (
                                             <li key={c._id}>
-                                                <a href="#">
-                                                    <div>{c.brand} {c.model}</div>
-                                                    <div>{c.created_at}</div>
-                                                    {c.fixes && <button className='button button-primary'>reparaciones</button>}
-                                                </a>
+                                                <div>{c.brand} {c.model}</div>
+                                                <div>{c.created_at}</div>
+                                                {c.fixes && <button className='button button-primary' onClick={() => redirectFixesPage(c._id)}>reparaciones</button>}
                                             </li>
                                         ))}
                                     </ul>
