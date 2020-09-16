@@ -12,6 +12,18 @@ Una vez instalada las dependencias, basta con ejecutar la siguiente instruccion 
 $ npm start 
 ```
 
+## Endpoints disponibles
+Es posible consumir los siguientes endpoints desde postman o cualquier app:
+| Metodo | URI | | Parameters |
+|-	|-	|-	|-	|
+| POST | /users/login | Auth | username, password
+|  GET	| /users |  	|  	|
+| POST	| /users/create |  	| username, password |
+| GET	| /clients |  	|  |
+| POST	| /clients/create |  | names, lastNames, streetAddress, email |
+| POST	| /cars/create |  | emailclient, brand, model |
+| POST	| /cars/fixes/create |  | client_id, car_id, observ |
+
 
 # client
 El cliente que consume la anterior api, está desarrollada usando el siguiente stack
@@ -34,3 +46,8 @@ Si quieres generar los estaticos del cliente para desplegar en algun hosting, de
 $ npm run build
 ```
 Y los archivos generados se encuentran en la carpeta `build`
+
+
+# Demo
+Se puede ver una demo del proyecto en la siguiente direccion:
+[http://fixcars.ferdinania.com/](http://fixcars.ferdinania.com/)
