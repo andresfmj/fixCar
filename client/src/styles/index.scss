@@ -20,3 +20,16 @@ a {
         color: $text-links-hover;
     }
 }
+
+.button {
+    font: inherit;
+    border: none;
+    background: transparent;
+    margin: 0rem .4rem;
+    cursor: pointer;
+}
+
+.button-primary {
+    border: 1px solid $primary-color;
+    background-color: $secondary-text-color;
+}
