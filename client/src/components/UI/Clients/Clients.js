@@ -1,10 +1,14 @@
 import React from 'react';
 
+import './Clients.scss';
 
-function Clients(props) {
+function Clients({ children }) {
 
     return (
-        <h2>Clients</h2>
+        <div className='Clients'>
+            <h2>Listado de Clientes</h2>
+            <ul>{ children }</ul>
+        </div>
     )
 }
 
