@@ -1,0 +1,17 @@
+@import '../../../styles/shared';
+
+.Modal {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    right: 25%;
+    bottom: 25%;
+    z-index: 100;
+    .Modal-inner {
+        border: 1px solid #ddd;
+        border-radius: .6rem;
+        background-color: $accent-no-alpha;
+        padding: .8rem;
+        height: 100%;
+    }
+}
