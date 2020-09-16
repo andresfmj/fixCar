@@ -1,0 +1,32 @@
+@import '../../../styles/shared';
+
+.NewClient {
+    form {
+        margin: .8rem;
+        legend {
+            font-weight: $font-huge-weight;
+            font-size: 1.4em;
+        }
+        .input-group {
+            margin: .6rem;
+            display: flex;
+            flex-direction: column;
+            label {
+                margin: .4rem;
+                padding: 0 .8rem;
+            }
+            .input-form {
+                padding: .4rem;
+                border: 1px solid $accent;
+                border-radius: .4rem;
+                input {
+                    font: inherit;
+                    border: none;
+                    background: none;
+                    width: 100%;
+                    outline: 0;
+                }
+            }
+        }
+    }
+}
