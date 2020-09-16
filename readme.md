@@ -2,7 +2,7 @@
 Endpoints necesarios consumibles para registrar clientes, autos por cada cliente y las
 respectivas reparaciones relacionadas a un determinado auto
 
-## Uso
+## Instalacion y uso
 Entrar a la carpeta `server` e instalar las dependencias especificadas en el `package.json`
 ```
 $ npm install
@@ -11,6 +11,7 @@ Una vez instalada las dependencias, basta con ejecutar la siguiente instruccion 
 ```
 $ npm start 
 ```
+> Cabe resaltar, que la base de datos usada en esta api es **mongoDB** en la version 4.4 preferiblemente, el cual se puede descargar de [aqui](https://docs.mongodb.com/manual/installation/)
 
 ## Endpoints disponibles
 Es posible consumir los siguientes endpoints desde postman o cualquier app:
