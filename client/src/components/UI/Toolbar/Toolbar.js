@@ -13,6 +13,16 @@ function Toolbar(props) {
                         <Link to='/'>Control de Autos</Link>
                     </h2>
                 </header>
+                <div className="navbar">
+                    <ul>
+                        <li className='menu-header'>
+                            <span className='menu'>Clientes</span>
+                            <ul className='submenu'>
+                                <li><Link to='/client/new'>Create</Link></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     )
