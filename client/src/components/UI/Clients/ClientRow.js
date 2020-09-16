@@ -28,8 +28,8 @@ function ClientRow(props) {
                     <h4>{`${i.created_at}`}</h4>
                 </div>
                 <div className="actions-links">
-                    <button className='button button-primary' onClick={() => handleRegisteredCars(i._id)}>Ver autos registrados</button>
-                    <button className='button button-primary' onClick={handleMoreInfo}>Info adicional</button>
+                    <button className='button button-primary' onClick={() => handleRegisteredCars(i._id)}>autos registrados</button>
+                    {/* <button className='button button-primary' onClick={handleMoreInfo}>info adicional</button> */}
                 </div>
             </li>
         ))

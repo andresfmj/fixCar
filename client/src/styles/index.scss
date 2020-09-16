@@ -33,6 +33,15 @@ a {
     cursor: pointer;
 }
 
+.button-large {
+    font: inherit;
+    border: none;
+    background: transparent;
+    margin: .8rem;
+    padding: .6rem;
+    cursor: pointer;
+}
+
 .button-primary {
     border: 1px solid $primary-color;
     background-color: $secondary-text-color;
