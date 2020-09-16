@@ -1,0 +1,22 @@
+$font-huge-weight: 600;
+$font-small-weight: 300;
+
+@mixin google-font($family) {
+    @import url("https://fonts.googleapis.com/css2?family=#{$family}:wght@#{$font-small-weight};#{$font-huge-weight}&display=swap");
+}
+@include google-font("Montserrat");
+
+$default-family-font: 'Montserrat', sans-serif;
+
+$font-huge: 20px;
+$font-small: 14px;
+
+// colors
+$primary-color: #472D30;
+$secondary-color: #723D46;
+$primary-text-color: #C9CBA3;
+$secondary-text-color: #FFE1A8;
+$bg-color: rgba(114, 61, 70, 0.1);
+$text-links: #E26D5C;
+$text-links-hover: rgba(226, 109, 92, 0.5);
+

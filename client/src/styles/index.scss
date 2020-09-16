@@ -1,0 +1,22 @@
+@import '_reset';
+@import '_shared';
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: $default-family-font;
+    font-weight: $font-small-weight;
+    font-size: $font-small;
+}
+
+body {
+    background-color: $bg-color;
+}
+
+a {
+    text-decoration: none;
+    color: $text-links;
+    &:hover {
+        color: $text-links-hover;
+    }
+}
