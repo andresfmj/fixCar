@@ -3,7 +3,9 @@ import * as actions from './actions';
 const initialState = {
     clients: [],
     loadingClients: false,
-    errorClients: null
+    errorClients: null,
+    creatingClient: false,
+    errorCreating: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -26,6 +28,27 @@ const reducer = (state = initialState, action) => {
             errorClients: action.payload.message
         }
     }
+
+    if (action.type === actions.CREATE_CLIENT_START) {
+        return {
+            ...state,
+            creatingClient: true,
+            errorCreating: null
+        }
+    } else if (action.type === actions.CREATE_CLIENT_SUCCESS) {
+        return {
+            ...state,
+            clients: [...state.clients, action.payload],
+            creatingClient: false
+        }
+    } else if (action.type === actions.CREATE_CLIENT_FAIL) {
+        return {
+            ...state,
+            creatingClient: false,
+            errorCreating: action.payload
+        }
+    }
+
     return state;
 }
 
