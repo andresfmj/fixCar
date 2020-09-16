@@ -1,0 +1,25 @@
+@import '../../../styles/shared';
+
+.Toolbar {
+    background-color: $primary-color;
+    color: $primary-text-color;
+    padding: .8rem;
+    
+    .nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        header {
+            h2 {
+                a {
+                    text-decoration: none;
+                    color: $secondary-text-color;
+                    &:hover {
+                        color: $primary-text-color;
+                    }
+                }
+            }
+        }
+    }
+}
