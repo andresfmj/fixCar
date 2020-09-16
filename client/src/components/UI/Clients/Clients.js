@@ -2,12 +2,14 @@ import React from 'react';
 
 import './Clients.scss';
 
-function Clients({ children }) {
+function Clients(props) {
+    const Messages = props.messages
 
     return (
         <div className='Clients'>
             <h2>Listado de Clientes</h2>
-            <ul>{ children }</ul>
+            { <Messages /> }
+            <ul>{ props.children }</ul>
         </div>
     )
 }

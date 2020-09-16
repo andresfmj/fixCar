@@ -8,8 +8,16 @@ function Index(props) {
 
     return (
         <div className='Index'>
-            {props.loading ? <p>Loading clients...</p> : null}
-            <Client>
+            <Client messages={() => (
+                <React.Fragment>
+                    <div className='loading'>
+                        {props.loading ? <p>Loading clients...</p> : null}
+                    </div>
+                    <div>
+                        {props.error ? <p className='text-center'>{props.error}</p> : null}
+                    </div>
+                </React.Fragment>
+            )}>
                 <ClientRow clients={props.clients} />
             </Client>
         </div>
