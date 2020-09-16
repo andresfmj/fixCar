@@ -1,0 +1,30 @@
+@import '../../../styles/shared';
+
+.Cars {
+    display: flex;
+    flex-direction: column;
+    margin: .8rem;
+    align-items: center;
+    header {
+        display: flex;
+    }
+    .CarsList {
+        margin: .8rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        ul {
+            margin: 0;
+            padding: 0;
+            li {
+                background-color: $accent;
+                border-radius: .4rem;
+                margin: .8rem;
+                padding: .8rem;
+                line-height: 1.6em;
+                a {
+                    color: inherit;
+                }
+            }
+        }
+    }
+}
