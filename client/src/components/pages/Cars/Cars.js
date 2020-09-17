@@ -23,8 +23,8 @@ function Cars(props) {
         setNewCarModal(!newCarModal)
     }
 
-    const redirectFixesPage = (carId) => {
-        props.history.push(`/cars/${carId}/fixes`)
+    const redirectFixesPage = (carId, clientId) => {
+        props.history.push(`/client/${clientId}/cars/${carId}/fixes`)
     }
 
     return (
@@ -48,7 +48,7 @@ function Cars(props) {
                                             <li key={c._id}>
                                                 <div>{c.brand} {c.model}</div>
                                                 <div>{c.created_at}</div>
-                                                {c.fixes && <button className='button button-primary' onClick={() => redirectFixesPage(c._id)}>reparaciones</button>}
+                                                {c.fixes && <button className='button button-primary' onClick={() => redirectFixesPage(c._id, selectedClient._id)}>reparaciones</button>}
                                             </li>
                                         ))}
                                     </ul>
