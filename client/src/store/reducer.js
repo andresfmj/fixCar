@@ -102,10 +102,13 @@ const reducer = (state = initialState, action) => {
             errorFixes: null
         }
     } else if (action.type === actions.FETCH_FIXCAR_SUCCESS) {
+        let cfixes = action.payload[0].car.map(i => {
+            return i.fixes
+        })
         return {
             ...state,
             loadingFixes: false,
-            carFixes: action.payload[0].car.fixes
+            carFixes: cfixes
         }
     } else if (action.type === actions.FETCH_FIXCAR_FAIL) {
         return {

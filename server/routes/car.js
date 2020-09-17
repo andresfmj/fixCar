@@ -145,10 +145,14 @@ router.get('/:carId', async (req, res) => {
                     }
                 }
             }
-        }
+        },
+        { $unwind: "$car.fixes" },
+        { $sort: { "car.fixes.created_at": -1 } },
+        { $group: {_id: '$_id', "car": { $push: '$car' } } }
     ]
 
     const carCLient = await ClientModel.aggregate(query)
+    console.log(carCLient)
     
     if (carCLient && carCLient.length > 0 && carCLient[0].car) {
         res.status(200).json({
