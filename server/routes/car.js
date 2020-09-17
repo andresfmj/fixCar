@@ -119,7 +119,48 @@ router.post('/fixes/create', async (req, res) => {
         })
     }
 
+})
+
+router.get('/:carId', async (req, res) => {
+    const { carId } = req.params
     
+    const query = [
+        {
+            "$match" : {
+                "car._id": { $eq: mongoose.Types.ObjectId(carId) }
+            }
+        },
+        {
+            "$project" : {
+                "names" : 1, "lastNames" : 1,
+                "car" : {
+                    "$first": {
+                        "$filter" : {
+                            "input" : "$car",
+                            "as" : "car",
+                            "cond" : {
+                                "$eq": [ "$$car._id", mongoose.Types.ObjectId(carId) ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+
+    const carCLient = await ClientModel.aggregate(query)
+    
+    if (carCLient && carCLient.length > 0 && carCLient[0].car) {
+        res.status(200).json({
+            error: false,
+            results: carCLient
+        })
+    } else {
+        res.status(404).json({
+            error: true,
+            message: 'Car not found'
+        })
+    }
 
 })
 
