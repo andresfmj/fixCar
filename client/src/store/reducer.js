@@ -7,7 +7,9 @@ const initialState = {
     creatingClient: false,
     errorCreating: null,
     createCar: false,
-    errorCar: null
+    errorCar: null,
+    addingFixCar: false,
+    statusAddFixCar: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -67,6 +69,26 @@ const reducer = (state = initialState, action) => {
             ...state,
             createCar: false,
             errorCar: action.payload
+        }
+    }
+
+    if (action.type === actions.ADD_FIXCAR_START) {
+        return {
+            ...state,
+            addingFixCar: true,
+            statusAddFixCar: null
+        }
+    } else if (action.type === actions.ADD_FIXCAR_SUCCESS) {
+        return {
+            ...state,
+            statusAddFixCar: action.payload,
+            addingFixCar: false
+        }
+    } else if (action.type === actions.ADD_FIXCAR_FAIL) {
+        return {
+            ...state,
+            addingFixCar: false,
+            statusAddFixCar: action.payload
         }
     }
 

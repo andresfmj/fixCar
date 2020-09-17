@@ -12,6 +12,11 @@ export const CREATE_CAR_START = 'CREATE_CAR_START';
 export const CREATE_CAR_SUCCESS = 'CREATE_CAR_SUCCESS';
 export const CREATE_CAR_FAIL = 'CREATE_CAR_FAIL';
 
+export const ADD_FIXCAR_START = 'ADD_FIXCAR_START';
+export const ADD_FIXCAR_SUCCESS = 'ADD_FIXCAR_SUCCESS';
+export const ADD_FIXCAR_FAIL = 'ADD_FIXCAR_FAIL';
+
+
 const fetchClientsStart = () => ({
     type: FETCH_CLIENT_LIST_START
 })
@@ -47,6 +52,19 @@ const createCarSuccess = payload => ({
 })
 const createCarFailed = payload => ({
     type: CREATE_CAR_FAIL,
+    payload
+})
+
+
+const addFixCarStart = () => ({
+    type: ADD_FIXCAR_START
+})
+const addFixCarSuccess = payload => ({
+    type: ADD_FIXCAR_SUCCESS,
+    payload
+})
+const addFixCarFail = payload => ({
+    type: ADD_FIXCAR_FAIL,
     payload
 })
 
@@ -107,6 +125,27 @@ export const createCarInit = (params) => {
             dispatch(createCarFailed(response.message))
         } else {
             dispatch(createCarSuccess(response.client))
+        }
+    }
+}
+
+
+
+export const addFixCarInit = (params) => {
+    return async (dispatch) => {
+        dispatch(addFixCarStart())
+        let response = await fetch(`${constants.API_URL}/cars/fixes/create`, {
+            method: 'POST',
+            body: JSON.stringify(params),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        response = await response.json()
+        if (response.error) {
+            dispatch(addFixCarFail(response.message))
+        } else {
+            dispatch(addFixCarSuccess(response.message))
         }
     }
 }
