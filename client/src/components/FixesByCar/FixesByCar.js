@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouteMatch, withRouter } from 'react-router-dom';
 import { createPortal } from 'react-dom';
+import { connect } from 'react-redux';
 
 
 import './FixesByCar.scss';
@@ -8,6 +9,8 @@ import './FixesByCar.scss';
 import Overlay from '../UI/Overlay/Overlay';
 import Modal from '../UI/Modal/Modal';
 import NewFixCar from '../NewFixCar/NewFixCar';
+
+import { fetchFixCarInit } from '../../store/actions';
 
 
 function FixesByCar(props) {
@@ -22,6 +25,10 @@ function FixesByCar(props) {
         setNewFixModal(!newFixModal)
     }
 
+    useEffect(() => {
+        props.fetchFixCarInit(carId)
+    }, [])
+
     return (
         <div className="FixesByCar">
             <header>
@@ -32,8 +39,32 @@ function FixesByCar(props) {
                     <NewFixCar clientId={clientId} carId={carId} />
                 </Modal>
             </header>
+            <div className='Fixes-List'>
+                {props.loadingFixes ? <p>Cargando reparaciones...</p> : null}
+                {props.errorFixes ? <p>{props.errorFixes}</p> : null}
+                {
+                    <ul>
+                        {props.carFixes && props.carFixes.map(i => (
+                            <li key={i._id}>
+                                <p>{i.observ}</p>
+                                <p>{i.created_at}</p>
+                            </li>
+                        ))}
+                    </ul>
+                }
+            </div>
         </div>
     )
 }
 
-export default withRouter(FixesByCar);
+const mapDispatchToProps = {
+    fetchFixCarInit
+}
+
+const mapStateToProps = state => ({
+    carFixes: state.carFixes,
+    loadingFixes: state.loadingFixes,
+    errorFixes: state.errorFixes
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FixesByCar));

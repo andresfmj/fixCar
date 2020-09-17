@@ -1,3 +1,5 @@
+@import '../../styles/shared';
+
 .FixesByCar {
     display: flex;
     flex-direction: column;
@@ -5,6 +7,16 @@
     margin: .8rem;
     header {
         display: flex;
-        
+    }
+    .Fixes-List {
+        ul {
+            margin: 0;
+            padding: 0;
+            li {
+                margin: .4rem;
+                padding: .6rem;
+                background-color: $accent;
+            }
+        }
     }
 }
