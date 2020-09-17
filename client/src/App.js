@@ -16,7 +16,7 @@ function App() {
 				<Route exact path='/' component={Index} />
 				<Route exact path='/client/new' component={NewClient} />
 				<Route exact path='/client/:clientId/cars' component={Cars} />
-				<Route exact path='/cars/:carId/fixes' component={FixesByCar} />
+				<Route exact path='/client/:clientId/cars/:carId/fixes' component={FixesByCar} />
 			</Switch>
 		</React.Fragment>
 	);
